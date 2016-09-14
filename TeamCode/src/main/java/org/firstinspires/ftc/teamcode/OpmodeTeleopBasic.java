@@ -78,8 +78,8 @@ public class OpmodeTeleopBasic extends LinearOpMode {
         telemetry.update();
 
         //Set rPosition & lPosition to initial States
-        lPosition = robot.LEFT_SERVO_MIN;
-        rPosition = robot.RIGHT_SERVO_MIN;
+        lPosition = HardwareJoeBot.LEFT_SERVO_MIN;
+        rPosition = HardwareJoeBot.RIGHT_SERVO_MIN;
 
 
         // Wait for the game to start (driver presses PLAY)
@@ -110,22 +110,22 @@ public class OpmodeTeleopBasic extends LinearOpMode {
             // Use Bumpers to extend wings. If the wing is already out, bumper should pull it in.
             if (gamepad1.left_bumper) {
                 // Check to see if wing is extended
-                if (lPosition == robot.LEFT_SERVO_MAX) {
-                    robot.srv_left.setPosition(robot.LEFT_SERVO_MIN);
-                    lPosition = robot.LEFT_SERVO_MIN;
-                } else if (lPosition == robot.LEFT_SERVO_MIN) {
-                    robot.srv_left.setPosition(robot.LEFT_SERVO_MAX);
-                    lPosition = robot.LEFT_SERVO_MAX;
+                if (lPosition == HardwareJoeBot.LEFT_SERVO_MAX) {
+                    robot.srv_left.setPosition(HardwareJoeBot.LEFT_SERVO_MIN);
+                    lPosition = HardwareJoeBot.LEFT_SERVO_MIN;
+                } else if (lPosition == HardwareJoeBot.LEFT_SERVO_MIN) {
+                    robot.srv_left.setPosition(HardwareJoeBot.LEFT_SERVO_MAX);
+                    lPosition = HardwareJoeBot.LEFT_SERVO_MAX;
                 }
             }
             if (gamepad1.right_bumper) {
                 // Check to see if wing is extended
-                if (rPosition == robot.RIGHT_SERVO_MAX) {
-                    robot.srv_right.setPosition(robot.RIGHT_SERVO_MIN);
-                    rPosition = robot.RIGHT_SERVO_MIN;
-                } else if (rPosition == robot.RIGHT_SERVO_MIN){
-                    robot.srv_right.setPosition(robot.RIGHT_SERVO_MAX);
-                    rPosition = robot.RIGHT_SERVO_MAX;
+                if (rPosition == HardwareJoeBot.RIGHT_SERVO_MAX) {
+                    robot.srv_right.setPosition(HardwareJoeBot.RIGHT_SERVO_MIN);
+                    rPosition = HardwareJoeBot.RIGHT_SERVO_MIN;
+                } else if (rPosition == HardwareJoeBot.RIGHT_SERVO_MIN){
+                    robot.srv_right.setPosition(HardwareJoeBot.RIGHT_SERVO_MAX);
+                    rPosition = HardwareJoeBot.RIGHT_SERVO_MAX;
                 }
             }
 
