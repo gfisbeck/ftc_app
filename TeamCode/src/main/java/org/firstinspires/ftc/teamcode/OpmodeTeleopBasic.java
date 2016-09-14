@@ -63,6 +63,8 @@ public class OpmodeTeleopBasic extends LinearOpMode {
         double right;
         double rightTrigger;
         double leftTrigger;
+        double rPosition;
+        double lPosition;
 
         //double max;
 
@@ -74,6 +76,11 @@ public class OpmodeTeleopBasic extends LinearOpMode {
         // Send telemetry message to signify robot waiting;
         telemetry.addData("Say", "Hello Driver");    //
         telemetry.update();
+
+        //Set rPosition & lPosition to initial States
+        lPosition = robot.LEFT_SERVO_MIN;
+        rPosition = robot.RIGHT_SERVO_MIN;
+
 
         // Wait for the game to start (driver presses PLAY)
         waitForStart();
@@ -100,6 +107,27 @@ public class OpmodeTeleopBasic extends LinearOpMode {
                 robot.motor_arm.setPower(0);
             }
 
+            // Use Bumpers to extend wings. If the wing is already out, bumper should pull it in.
+            if (gamepad1.left_bumper) {
+                // Check to see if wing is extended
+                if (lPosition == robot.LEFT_SERVO_MAX) {
+                    robot.srv_left.setPosition(robot.LEFT_SERVO_MIN);
+                    lPosition = robot.LEFT_SERVO_MIN;
+                } else if (lPosition == robot.LEFT_SERVO_MIN) {
+                    robot.srv_left.setPosition(robot.LEFT_SERVO_MAX);
+                    lPosition = robot.LEFT_SERVO_MAX;
+                }
+            }
+            if (gamepad1.right_bumper) {
+                // Check to see if wing is extended
+                if (rPosition == robot.RIGHT_SERVO_MAX) {
+                    robot.srv_right.setPosition(robot.RIGHT_SERVO_MIN);
+                    rPosition = robot.RIGHT_SERVO_MIN;
+                } else if (rPosition == robot.RIGHT_SERVO_MIN){
+                    robot.srv_right.setPosition(robot.RIGHT_SERVO_MAX);
+                    rPosition = robot.RIGHT_SERVO_MAX;
+                }
+            }
 
             // Pause for metronome tick.  40 mS each cycle = update 25 times a second.
             robot.waitForTick(40);

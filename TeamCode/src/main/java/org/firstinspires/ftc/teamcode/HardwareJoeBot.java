@@ -27,10 +27,10 @@ public class HardwareJoeBot
     public Servo    srv_left          = null;
     public Servo    srv_right         = null;
 
-    public static final double RIGHT_SERVO_MAX   =  0.2 ;
-    public static final double RIGHT_SERVO_MIN   =  0.8 ;
-    public static final double LEFT_SERVO_MAX   =  0.8 ;
-    public static final double LEFT_SERVO_MIN   =  0.2 ;
+    public static final double RIGHT_SERVO_MAX   =  0.1 ;
+    public static final double RIGHT_SERVO_MIN   =  0.9 ;
+    public static final double LEFT_SERVO_MAX   =  0.9 ;
+    public static final double LEFT_SERVO_MIN   =  0.1 ;
 
     //public static final double ARM_UP_POWER    =  0.45 ;
     //public static final double ARM_DOWN_POWER  = -0.45 ;
