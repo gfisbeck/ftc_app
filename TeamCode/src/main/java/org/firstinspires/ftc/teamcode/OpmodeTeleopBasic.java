@@ -74,7 +74,8 @@ public class OpmodeTeleopBasic extends LinearOpMode {
         robot.init(hardwareMap);
 
         // Send telemetry message to signify robot waiting;
-        telemetry.addData("Say", "Hello Driver");    //
+        telemetry.addData("Say", "Hello Driver");
+        telemetry.addData("Say", "Starting Drive Control Mode");
         telemetry.update();
 
         //Set rPosition & lPosition to initial States
