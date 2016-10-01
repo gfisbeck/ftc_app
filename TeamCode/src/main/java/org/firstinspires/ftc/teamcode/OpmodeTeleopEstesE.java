@@ -43,15 +43,14 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
  * This particular OpMode executes a Tank Drive style Teleop for the 2015 JoeBot
  */
 
-@TeleOp(name="EstesE Tank Drive", group="Test")
+@TeleOp(name="EstesE POV Drive", group="Test")
 //@Disabled
 public class OpmodeTeleopEstesE extends LinearOpMode {
 
     /* Declare OpMode members. */
     HardwareJoeBot  robot           = new HardwareJoeBot();     // Use a JoeBot's hardware
 
-    //double          clawOffset      = 0;                       // Servo mid position
-    //final double    CLAW_SPEED      = 0.02 ;                   // sets rate to move servo
+
 
     @Override
     public void runOpMode() throws InterruptedException {
