@@ -70,7 +70,7 @@ public class OpmodeTeleopGreg extends LinearOpMode {
         robot.init(hardwareMap);
 
         // Send telemetry message to signify robot waiting;
-        telemetry.addData("Say", "Hello Greg");
+        telemetry.addData("Say", "Hello Greg. This is a test.");
         telemetry.addData("Say", "Starting Drive Control Mode");
         telemetry.update();
 
