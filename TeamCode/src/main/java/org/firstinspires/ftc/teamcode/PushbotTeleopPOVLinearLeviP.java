@@ -32,37 +32,42 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 package org.firstinspires.ftc.teamcode;
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.util.Range;
+
+import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
 
 /**
- * This OpMode uses the JoeBot hardware class to define the devices on the robot.
- * All device access is managed through the HardwareJoeBot class.
+ * This OpMode uses the common Pushbot hardware class to define the devices on the robot.
+ * All device access is managed through the HardwarePushbot class.
  * The code is structured as a LinearOpMode
  *
- * This particular OpMode executes a Tank Drive style Teleop for the 2015 JoeBot
+ * This particular OpMode executes a POV Game style Teleop for a PushBot
+ * In this mode the left stick moves the robot FWD and back, the Right stick turns left and right.
+ * It raises and lowers the claw using the Gampad Y and A buttons respectively.
+ * It also opens and closes the claws slowly using the left and right Bumper buttons.
+ *
+ * Use Android Studios to Copy this Class, and Paste it into your team's code folder with a new name.
+ * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
 
-@TeleOp(name="Levi Tank Drive", group="Test")
+@TeleOp(name="Pushbot: Teleop POV", group="Pushbot")
 //@Disabled
-public class OpmodeTeleopLeviP extends LinearOpMode {
+public class PushbotTeleopPOVLinearLeviP extends LinearOpMode {
 
     /* Declare OpMode members. */
-    HardwareJoeBot  robot           = new HardwareJoeBot();     // Use a JoeBot's hardware
-
-    //double          clawOffset      = 0;                       // Servo mid position
-    //final double    CLAW_SPEED      = 0.02 ;                   // sets rate to move servo
+    HardwarePushbot robot           = new HardwarePushbot();   // Use a Pushbot's hardware
+                                                               // could also use HardwarePushbotMatrix class.
+    double          clawOffset      = 0;                       // Servo mid position
+    final double    CLAW_SPEED      = 0.02 ;                   // sets rate to move servo
 
     @Override
     public void runOpMode() throws InterruptedException {
         double left;
         double right;
-        double rightTrigger;
-        double leftTrigger;
-        double rPosition;
-        double lPosition;
-
-        //double max;
+        double max;
 
         /* Initialize the hardware variables.
          * The init() method of the hardware class does all the work here
@@ -73,41 +78,34 @@ public class OpmodeTeleopLeviP extends LinearOpMode {
         telemetry.addData("Say", "Hello Levi");    //
         telemetry.update();
 
-        //Set rPosition & lPosition to initial States
-
-
-
         // Wait for the game to start (driver presses PLAY)
         waitForStart();
 
         // run until the end of the match (driver presses STOP)
         while (opModeIsActive()) {
 
-            // Run wheels in Tank mode (note: The joystick goes negative when pushed forwards, so negate it)
+            // Run wheels in POV mode (note: The joystick goes negative when pushed forwards, so negate it)
             // In this mode the Left stick moves the robot fwd and back, the Right stick turns left and right.
-            left = -gamepad1.left_stick_y;
-            right = -gamepad1.right_stick_y;
-            robot.motor_driveleft.setPower(left);
-            robot.motor_driveright.setPower(right);
+            left  = -gamepad1.left_stick_y + gamepad1.right_stick_x;
+            right = -gamepad1.left_stick_y - gamepad1.right_stick_x;
 
-            // Raise Arm with Triggers
-            leftTrigger = gamepad1.left_trigger;
-            rightTrigger = gamepad1.right_trigger;
-            //If the right trigger is pressed, we're going to ignore left trigger
+            // Normalize the values so neither exceed +/- 1.0
+            max = Math.max(Math.abs(left), Math.abs(right));
+            if (max > 1.0)
+            {
+                left /= max;
+                right /= max;
+            }
 
-
-            // Use Bumpers to extend wings. If the wing is already out, bumper should pull it in.
-
-                // Check to see if wing is extended
-
+            robot.leftMotor.setPower(left);
+            robot.rightMotor.setPower(right);
 
 
 
 
 
 
-            // Pause for metronome tick.  40 mS each cycle = update 25 times a second.
-            robot.waitForTick(40);
+
         }
     }
 }
