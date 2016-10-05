@@ -53,11 +53,11 @@ import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list.
  */
 
-@TeleOp(name="Pushbot: Teleop POV", group="Pushbot")
+@TeleOp(name="Pushbot: EthanTest", group="Pushbot")
 public class EstesETeleopPOV extends LinearOpMode {
 
     /* Declare OpMode members. */
-    HardwarePushbot robot           = new HardwarePushbot();   // Use a Pushbot's hardware
+    HardwareJoeBot robot           = new HardwareJoeBot();   // Use a Pushbot's hardware
                                                                // could also use HardwarePushbotMatrix class.
 
 
@@ -70,6 +70,7 @@ public class EstesETeleopPOV extends LinearOpMode {
         /* Initialize the hardware variables.
          * The init() method of the hardware class does all the work here
          */
+
         robot.init(hardwareMap);
 
         // Send telemetry message to signify robot waiting;
@@ -95,8 +96,8 @@ public class EstesETeleopPOV extends LinearOpMode {
                 right /= max;
             }
 
-            robot.leftMotor.setPower(left);
-            robot.rightMotor.setPower(right);
+            robot.motor_driveleft.setPower(left);
+            robot.motor_driveright.setPower(right);
 
 
 
