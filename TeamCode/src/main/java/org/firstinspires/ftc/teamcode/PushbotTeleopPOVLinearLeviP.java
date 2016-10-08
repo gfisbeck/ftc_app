@@ -50,16 +50,18 @@ import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
  * It also opens and closes the claws slowly using the left and right Bumper buttons.
  *
  * Use Android Studios to Copy this Class, and Paste it into your team's code folder with a new name.
- * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list.
+ * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
 
-@TeleOp(name="Pushbot: EthanTest", group="Pushbot")
-public class EstesETeleopPOV extends LinearOpMode {
+@TeleOp(name="Pushbot: Teleop POV", group="Pushbot")
+//@Disabled
+public class PushbotTeleopPOVLinearLeviP extends LinearOpMode {
 
     /* Declare OpMode members. */
-    HardwareJoeBot robot           = new HardwareJoeBot();   // Use a Pushbot's hardware
+    HardwarePushbot robot           = new HardwarePushbot();   // Use a Pushbot's hardware
                                                                // could also use HardwarePushbotMatrix class.
-
+    double          clawOffset      = 0;                       // Servo mid position
+    final double    CLAW_SPEED      = 0.02 ;                   // sets rate to move servo
 
     @Override
     public void runOpMode() throws InterruptedException {
@@ -70,11 +72,10 @@ public class EstesETeleopPOV extends LinearOpMode {
         /* Initialize the hardware variables.
          * The init() method of the hardware class does all the work here
          */
-
         robot.init(hardwareMap);
 
         // Send telemetry message to signify robot waiting;
-        telemetry.addData("Say", "Hello Ethan");    //
+        telemetry.addData("Say", "Hello Levi");    //
         telemetry.update();
 
         // Wait for the game to start (driver presses PLAY)
@@ -96,13 +97,15 @@ public class EstesETeleopPOV extends LinearOpMode {
                 right /= max;
             }
 
-            robot.motor_driveleft.setPower(left);
-            robot.motor_driveright.setPower(right);
+            robot.leftMotor.setPower(left);
+            robot.rightMotor.setPower(right);
 
 
 
-            // Pause for metronome tick.  40 mS each cycle = update 25 times a second.
-            robot.waitForTick(40);
+
+
+
+
         }
     }
 }
