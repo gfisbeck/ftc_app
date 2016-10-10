@@ -70,9 +70,7 @@ public class OpmodeTeleopSUMEDH extends LinearOpMode {
         telemetry.addData("Say", "Hello sumedh");    //
         telemetry.update();
 
-        //Set rPosition & lPosition to initial States
-        //lPosition = HardwareJoeBot.LEFT_SERVO_MIN;
-        //rPosition = HardwareJoeBot.RIGHT_SERVO_MIN;
+
 
 
         // Wait for the game to start (driver presses PLAY)
