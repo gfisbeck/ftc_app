@@ -50,12 +50,11 @@ import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
  * It also opens and closes the claws slowly using the left and right Bumper buttons.
  *
  * Use Android Studios to Copy this Class, and Paste it into your team's code folder with a new name.
- * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list abczXZDyd
+ * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
 
-@TeleOp(name="Pushbot: Teleop POV SumedhA", group="Pushbot")
-
-public class sumedhA extends LinearOpMode {
+@TeleOp(name="Pushbot: Teleop POV", group="Pushbot")
+public class Nick_File_File_Clancy extends LinearOpMode {
 
     /* Declare OpMode members. */
     HardwarePushbot robot           = new HardwarePushbot();   // Use a Pushbot's hardware
@@ -70,11 +69,7 @@ public class sumedhA extends LinearOpMode {
         /* Initialize the hardware variables.
          * The init() method of the hardware class does all the work here
          */
-        robot.init(hardwareMap);
-
-        // Send telemetry message to signify robot waiting;
-        telemetry.addData("Say", "Hello Driver");    //
-        telemetry.update();
+       robot.init (hardwareMap);
 
         // Wait for the game to start (driver presses PLAY)
         waitForStart();
@@ -100,8 +95,10 @@ public class sumedhA extends LinearOpMode {
 
 
 
-            // Pause for metronome tick.  40 mS each cycle = update 25 times a second.
-            robot.waitForTick(40);
+
+
+
+
         }
     }
 }
