@@ -176,7 +176,7 @@ public class JESAutoDriveByEncoder_Linear extends LinearOpMode {
 
 
             int I = 0;
-            while (I < 10) {
+            while (I < 5) {
                 //MOTION
                 robot.motor_driveright.setPower(-1);
                 robot.motor_driveleft.setPower(1);
