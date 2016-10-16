@@ -112,11 +112,10 @@ public class JE_AutoDriveByEncoder_Linear extends LinearOpMode {
         // Wait for the game to start (driver presses PLAY)
         waitForStart();
 
-        // Step through each leg of the path,
-        // Note: Reverse movement is obtained by setting a negative distance (not speed)
-        encoderDrive(DRIVE_SPEED,  149,  149, 10.0);  // S1: Forward 149 Inches with 10 Sec timeout
-        encoderDrive(TURN_SPEED,   12, -12, 10.0);  // S2: Turn Right 12 Inches with 10 Sec timeout
-        encoderDrive(DRIVE_SPEED, -129, -129, 10.0);  // S3: Reverse 24 Inches with 10 Sec timeout
+      //movment
+        encoderDrive(DRIVE_SPEED,  32.72, 32.72, 10.0);  // S1: Forward 32.72 Inches with 10 Sec timeout
+        encoderDrive(TURN_SPEED,   3, -3, 10.0);  // S2: Turn Right 3 Inches with 10 Sec timeout
+        encoderDrive(DRIVE_SPEED, 32.72, 32.72, 10.0);  // S3: Forward 32.72 Inches with 10 Sec timeout
 
 
         telemetry.addData("Path", "Complete");
