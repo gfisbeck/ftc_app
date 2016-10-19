@@ -67,7 +67,7 @@ import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
 
-@Autonomous(name="JE: Auto Drive By Encoder", group="Pushbot")
+@Autonomous(name="JEL MK_DEFINITALLY: Auto Drive By Encoder", group="Pushbot")
 
 public class JE_AutoDriveByEncoder_Linear extends LinearOpMode {
 
@@ -113,9 +113,9 @@ public class JE_AutoDriveByEncoder_Linear extends LinearOpMode {
         waitForStart();
 
       //movment
-        encoderDrive(DRIVE_SPEED,  32.72, 32.72, 10.0);  // S1: Forward 32.72 Inches with 10 Sec timeout
-        encoderDrive(TURN_SPEED,   3, -3, 10.0);  // S2: Turn Right 3 Inches with 10 Sec timeout
-        encoderDrive(DRIVE_SPEED, 32.72, 32.72, 10.0);  // S3: Forward 32.72 Inches with 10 Sec timeout
+        encoderDrive(DRIVE_SPEED,  33.72, 33.72, 10.0);  // S1: Forward 32.72 Inches with 10 Sec timeout
+        encoderDrive(TURN_SPEED,   5.2, -5.2, 10.0);  // S2: Turn Right 3 Inches with 10 Sec timeout
+        encoderDrive(DRIVE_SPEED, 33.72, 33.72, 10.0);  // S3: Forward 32.72 Inches with 10 Sec timeout
 
 
         telemetry.addData("Path", "Complete");
