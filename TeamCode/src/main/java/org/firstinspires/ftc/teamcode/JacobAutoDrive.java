@@ -119,12 +119,8 @@ public class JacobAutoDrive extends LinearOpMode {
             telemetry.update();
             idle();
         }
-
-        // Step 4:  Stop and close the claw.
         robot.leftMotor.setPower(0);
         robot.rightMotor.setPower(0);
-        robot.leftClaw.setPosition(1.0);
-        robot.rightClaw.setPosition(0.0);
 
         telemetry.addData("Path", "Complete");
         telemetry.update();
