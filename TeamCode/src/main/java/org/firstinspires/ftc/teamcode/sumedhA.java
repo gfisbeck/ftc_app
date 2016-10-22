@@ -50,18 +50,16 @@ import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
  * It also opens and closes the claws slowly using the left and right Bumper buttons.
  *
  * Use Android Studios to Copy this Class, and Paste it into your team's code folder with a new name.
- * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
+ * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list abczXZDyd
  */
 
-@TeleOp(name="Pushbot: Teleop POV Levi", group="Pushbot")
-//@Disabled
-public class PushbotTeleopPOVLinearLeviP extends LinearOpMode {
+@TeleOp(name="Pushbot: Teleop POV SumedhA", group="Pushbot")
+
+public class sumedhA extends LinearOpMode {
 
     /* Declare OpMode members. */
     HardwarePushbot robot           = new HardwarePushbot();   // Use a Pushbot's hardware
                                                                // could also use HardwarePushbotMatrix class.
-    double          clawOffset      = 0;                       // Servo mid position
-    final double    CLAW_SPEED      = 0.02 ;                   // sets rate to move servo
 
     @Override
     public void runOpMode() throws InterruptedException {
@@ -75,7 +73,7 @@ public class PushbotTeleopPOVLinearLeviP extends LinearOpMode {
         robot.init(hardwareMap);
 
         // Send telemetry message to signify robot waiting;
-        telemetry.addData("Say", "Hello Levi");    //
+        telemetry.addData("Say", "Hello Driver");    //
         telemetry.update();
 
         // Wait for the game to start (driver presses PLAY)
@@ -102,10 +100,8 @@ public class PushbotTeleopPOVLinearLeviP extends LinearOpMode {
 
 
 
-
-
-
-
+            // Pause for metronome tick.  40 mS each cycle = update 25 times a second.
+            robot.waitForTick(40);
         }
     }
 }
