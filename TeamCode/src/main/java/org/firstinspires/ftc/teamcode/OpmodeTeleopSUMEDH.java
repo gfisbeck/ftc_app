@@ -32,12 +32,8 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 package org.firstinspires.ftc.teamcode;
 
-import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
-import com.qualcomm.robotcore.util.Range;
-
-import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
 
 /**
  * This OpMode uses the JoeBot hardware class to define the devices on the robot.
@@ -47,9 +43,9 @@ import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
  * This particular OpMode executes a Tank Drive style Teleop for the 2015 JoeBot
  */
 
-@TeleOp(name="Tank Drive TeleOp", group="Greg")
+@TeleOp(name="sumedh tank drive", group="Test")
 //@Disabled
-public class OpmodeTeleopBasic extends LinearOpMode {
+public class OpmodeTeleopSUMEDH extends LinearOpMode {
 
     /* Declare OpMode members. */
     HardwareJoeBot  robot           = new HardwareJoeBot();     // Use a JoeBot's hardware
@@ -61,10 +57,7 @@ public class OpmodeTeleopBasic extends LinearOpMode {
     public void runOpMode() throws InterruptedException {
         double left;
         double right;
-        double rightTrigger;
-        double leftTrigger;
-        double rPosition;
-        double lPosition;
+
 
         //double max;
 
@@ -73,14 +66,11 @@ public class OpmodeTeleopBasic extends LinearOpMode {
          */
         robot.init(hardwareMap);
 
-        // Send telemetry message to signify robot waiting;
-        telemetry.addData("Say", "Hello Driver");
-        telemetry.addData("Say", "Starting Drive Control Mode");
+        // Send telemetry message to signify robondsndm
+        telemetry.addData("Say", "Hello sumedh");    //
         telemetry.update();
 
-        //Set rPosition & lPosition to initial States
-        lPosition = HardwareJoeBot.LEFT_SERVO_MIN;
-        rPosition = HardwareJoeBot.RIGHT_SERVO_MIN;
+
 
 
         // Wait for the game to start (driver presses PLAY)
@@ -96,39 +86,7 @@ public class OpmodeTeleopBasic extends LinearOpMode {
             robot.motor_driveleft.setPower(left);
             robot.motor_driveright.setPower(right);
 
-            // Raise Arm with Triggers
-            leftTrigger = gamepad1.left_trigger;
-            rightTrigger = gamepad1.right_trigger;
-            //If the right trigger is pressed, we're going to ignore left trigger
-            if (rightTrigger>0) {
-                robot.motor_arm.setPower(rightTrigger);
-            } else if (leftTrigger>0) {
-                robot.motor_arm.setPower(-leftTrigger);
-            } else {
-                robot.motor_arm.setPower(0);
-            }
 
-            // Use Bumpers to extend wings. If the wing is already out, bumper should pull it in.
-            if (gamepad1.left_bumper) {
-                // Check to see if wing is extended
-                if (lPosition == HardwareJoeBot.LEFT_SERVO_MAX) {
-                    robot.srv_left.setPosition(HardwareJoeBot.LEFT_SERVO_MIN);
-                    lPosition = HardwareJoeBot.LEFT_SERVO_MIN;
-                } else if (lPosition == HardwareJoeBot.LEFT_SERVO_MIN) {
-                    robot.srv_left.setPosition(HardwareJoeBot.LEFT_SERVO_MAX);
-                    lPosition = HardwareJoeBot.LEFT_SERVO_MAX;
-                }
-            }
-            if (gamepad1.right_bumper) {
-                // Check to see if wing is extended
-                if (rPosition == HardwareJoeBot.RIGHT_SERVO_MAX) {
-                    robot.srv_right.setPosition(HardwareJoeBot.RIGHT_SERVO_MIN);
-                    rPosition = HardwareJoeBot.RIGHT_SERVO_MIN;
-                } else if (rPosition == HardwareJoeBot.RIGHT_SERVO_MIN){
-                    robot.srv_right.setPosition(HardwareJoeBot.RIGHT_SERVO_MAX);
-                    rPosition = HardwareJoeBot.RIGHT_SERVO_MAX;
-                }
-            }
 
             // Pause for metronome tick.  40 mS each cycle = update 25 times a second.
             robot.waitForTick(40);

@@ -32,12 +32,8 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 package org.firstinspires.ftc.teamcode;
 
-import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
-import com.qualcomm.robotcore.util.Range;
-
-import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
 
 /**
  * This OpMode uses the JoeBot hardware class to define the devices on the robot.
@@ -47,9 +43,9 @@ import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
  * This particular OpMode executes a Tank Drive style Teleop for the 2015 JoeBot
  */
 
-@TeleOp(name="Tank Drive TeleOp", group="Greg")
+@TeleOp(name="Greg Tank Drive", group="Test")
 //@Disabled
-public class OpmodeTeleopBasic extends LinearOpMode {
+public class OpmodeTeleopGreg extends LinearOpMode {
 
     /* Declare OpMode members. */
     HardwareJoeBot  robot           = new HardwareJoeBot();     // Use a JoeBot's hardware
@@ -74,7 +70,7 @@ public class OpmodeTeleopBasic extends LinearOpMode {
         robot.init(hardwareMap);
 
         // Send telemetry message to signify robot waiting;
-        telemetry.addData("Say", "Hello Driver");
+        telemetry.addData("Say", "Hello Greg. This is a test. This is also a test.");
         telemetry.addData("Say", "Starting Drive Control Mode");
         telemetry.update();
 
