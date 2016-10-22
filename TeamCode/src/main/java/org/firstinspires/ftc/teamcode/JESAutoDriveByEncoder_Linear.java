@@ -149,7 +149,7 @@ public class JESAutoDriveByEncoder_Linear extends LinearOpMode {
 
             // Turn On RUN_TO_POSITION
             robot.motor_driveleft.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-            newRightTarget = robot.motor_driveright.
+            //newRightTarget = robot.motor_driveright;
 
             // reset the timeout time and start motion.
             runtime.reset();
