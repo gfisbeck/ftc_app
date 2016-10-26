@@ -67,13 +67,13 @@ import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
 
-@Autonomous(name="JES: Auto Drive By Encoder", group="Test")
+@Autonomous(name="JACK'S OPMODE", group="Test")
 public class JESAutoDriveByEncoder_Linear extends LinearOpMode {
 
     /* Declare OpMode members. */
     HardwareJoeBot         robot   = new HardwareJoeBot();   // Use a Pushbot's hardware
-
-
+    // IDK?
+    // What does it DOOOOOOOOOOO??????????
     static final double     COUNTS_PER_MOTOR_REV    = 1440 ;    // eg: TETRIX Motor Encoder
     static final double     DRIVE_GEAR_REDUCTION    = 2.0 ;     // This is < 1.0 if geared UP
     static final double     WHEEL_DIAMETER_INCHES   = 4.0 ;     // For figuring circumference
@@ -93,7 +93,7 @@ public class JESAutoDriveByEncoder_Linear extends LinearOpMode {
         robot.init(hardwareMap);
 
         // Send telemetry message to signify robot waiting;
-        telemetry.addData("Status", "Resetting Encoders");    //
+        telemetry.addData("Status", "Hello I can say the alphabet faster than YOU");    //
         telemetry.update();
 
         robot.motor_driveleft.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
@@ -149,7 +149,7 @@ public class JESAutoDriveByEncoder_Linear extends LinearOpMode {
 
             // Turn On RUN_TO_POSITION
             robot.motor_driveleft.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-
+            //newRightTarget = robot.motor_driveright;
 
             // reset the timeout time and start motion.
             runtime.reset();
@@ -176,7 +176,7 @@ public class JESAutoDriveByEncoder_Linear extends LinearOpMode {
 
 
             int I = 0;
-            while (I < 10) {
+            while (I < 5) {
                 //MOTION
                 robot.motor_driveright.setPower(-1);
                 robot.motor_driveleft.setPower(1);
@@ -184,9 +184,13 @@ public class JESAutoDriveByEncoder_Linear extends LinearOpMode {
             }
 
             // Stop all motion;
-            robot.motor_driveleft.setPower(0);
-            robot.motor_driveright.setPower(0);
-
+            telemetry.addData("Status", "ALPHAPBET ALPHABET BBBBOOOOOOOOYYYYY");    //
+            telemetry.update();
+            while (opModeIsActive() && (runtime.seconds() < 5.0)) {
+                robot.motor_driveleft.setPower(0);
+                robot.motor_driveright.setPower(0);
+            }
+            //}
             int B = 0;
             while (B < 10) {
                 //motion
