@@ -49,7 +49,7 @@ public class Opmode_JEl extends LinearOpMode {
 
     /* Declare OpMode members. */
     HardwareJoeBot  robot           = new HardwareJoeBot();     // Use a JoeBot's hardware
-
+    Boolean         intakeEnabled;
 
 
     @Override
@@ -69,6 +69,7 @@ public class Opmode_JEl extends LinearOpMode {
         telemetry.addData("Say", "Hello Ethan");    //
         telemetry.update();
 
+        intakeEnabled=false;
 
 
 
@@ -80,14 +81,30 @@ public class Opmode_JEl extends LinearOpMode {
 
             // Run wheels in Tank mode (note: The joystick goes negative when pushed forwards, so negate it)
             // In this mode the Left stick moves the robot fwd and back, the Right stick turns left and right.
-            left = -gamepad1.left_stick_y;
-            right = -gamepad1.right_stick_y;
+            left = -gamepad1.left_stick_y/2;
+            right = -gamepad1.right_stick_y/2;
             robot.motor_driveleft.setPower(left);
             robot.motor_driveright.setPower(right);
 
 
 
-
+            //Look For y button Press
+            if (gamepad1.y){
+                if (intakeEnabled == true){
+                    intakeEnabled=false;
+                    telemetry.addLine("Disabled Intake");
+                } else {
+                    intakeEnabled = true;
+                    telemetry.addLine("Enabled Intake");
+                    telemetry.update();
+                }
+            }
+            if (intakeEnabled == true){
+                robot.motor_arm.setPower(-0.45);
+            }
+           if (intakeEnabled != true){
+               robot.motor_arm.setPower(0);
+           }
 
 
 
