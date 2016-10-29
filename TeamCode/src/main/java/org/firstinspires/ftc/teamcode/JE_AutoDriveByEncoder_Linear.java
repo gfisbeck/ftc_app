@@ -113,9 +113,9 @@ public class JE_AutoDriveByEncoder_Linear extends LinearOpMode {
         waitForStart();
 
       //movment
-        encoderDrive(DRIVE_SPEED,  33.72, 33.72, 10.0);  // S1: Forward 32.72 Inches with 10 Sec timeout
-        encoderDrive(TURN_SPEED,   5.2, -5.2, 10.0);  // S2: Turn Right 3 Inches with 10 Sec timeout
-        encoderDrive(DRIVE_SPEED, 33.72, 33.72, 10.0);  // S3: Forward 32.72 Inches with 10 Sec timeout
+        encoderDrive(DRIVE_SPEED,  33.72, 33.72, 10.0);  // S1: Forward 33.72 Inches with 10 Sec timeout
+        encoderDrive(TURN_SPEED,   6, -6, 10.0);  // S2: Turn Right 6 Inches with 10 Sec timeout
+        encoderDrive(DRIVE_SPEED, 33.72, 33.72, 10.0);  // S3: Forward 33 .72 Inches with 10 Sec timeout
 
 
         telemetry.addData("Path", "Complete");

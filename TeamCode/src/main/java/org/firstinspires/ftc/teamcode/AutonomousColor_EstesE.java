@@ -37,9 +37,7 @@ import android.graphics.Color;
 import android.view.View;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
-import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
-import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
@@ -48,9 +46,9 @@ import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
 This file demonstrates usage of sensors.
  */
 
-@Autonomous(name="Autonomous Sensors", group="Greg")
+@Autonomous(name="Autonomous_Sensors", group="Test")
 //@Disabled
-public class AutonomousSensors extends LinearOpMode {
+public class AutonomousColor_EstesE extends LinearOpMode {
 
     /* Declare OpMode members. */
     HardwareJoeBot         robot   = new HardwareJoeBot();   // Use a Pushbot's hardware
@@ -83,7 +81,7 @@ public class AutonomousSensors extends LinearOpMode {
 
 
             // convert the RGB values to HSV values.
- //           Color.RGBToHSV(robot.colorSensor.red() * 8, robot.colorSensor.green() * 8, robot.colorSensor.blue() * 8, hsvValues);
+            //Color.RGBToHSV(robot.colorSensor.red() * 8, robot.colorSensor.green() * 8, robot.colorSensor.blue() * 8, hsvValues);
 
             // send the info back to driver station using telemetry function.
             telemetry.addData("Clear", robot.colorSensor.alpha());
@@ -93,11 +91,28 @@ public class AutonomousSensors extends LinearOpMode {
             telemetry.addData("Hue", hsvValues[0]);
 
 
-            // send range info back to Driver Station
-            //telemetry.addData("raw ultrasonic", robot.rangeSensor.rawUltrasonic());
-            //telemetry.addData("raw optical", robot.rangeSensor.rawOptical());
-            //telemetry.addData("cm optical", "%.2f cm", robot.rangeSensor.cmOptical());
-            //telemetry.addData("cm", "%.2f cm", robot.rangeSensor.getDistance(DistanceUnit.CM));
+
+
+            while (opModeIsActive() && (runtime.seconds() < 7.0)) {
+                while (opModeIsActive() && (robot.colorSensor.blue() > 20))
+                telemetry.addData("Path", "Leg 1: %2.5f S Elapsed", runtime.seconds());
+                robot.motor_driveleft.setPower(1);
+                robot.motor_driveright.setPower(1);
+                telemetry.addData("Clear", robot.colorSensor.alpha());
+                telemetry.addData("Red  ", robot.colorSensor.red());
+                telemetry.addData("Green", robot.colorSensor.green());
+                telemetry.addData("Blue ", robot.colorSensor.blue());
+                telemetry.addData("Hue", hsvValues[0]);
+
+
+            }
+
+
+
+
+
+
+
 
             // change the background color to match the color detected by the RGB sensor.
             // pass a reference to the hue, saturation, and value array as an argument

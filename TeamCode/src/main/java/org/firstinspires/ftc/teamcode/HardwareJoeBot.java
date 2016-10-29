@@ -63,7 +63,7 @@ public class HardwareJoeBot
 
         //Define Sensors
         colorSensor = hwMap.colorSensor.get("color-sensor");
-        rangeSensor = hwMap.get(ModernRoboticsI2cRangeSensor.class, "range-sensor");
+       rangeSensor = hwMap.get(ModernRoboticsI2cRangeSensor.class, "range-sensor");
 
         //Enable Color Sensor LED
         colorSensor.enableLed(true);
