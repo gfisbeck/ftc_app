@@ -79,8 +79,8 @@ public class OpmodeTeleopBasic extends LinearOpMode {
         telemetry.update();
 
         //Set rPosition & lPosition to initial States
-        lPosition = HardwareJoeBot.LEFT_SERVO_MIN;
-        rPosition = HardwareJoeBot.RIGHT_SERVO_MIN;
+        //lPosition = HardwareJoeBot.LEFT_SERVO_MIN;
+        //rPosition = HardwareJoeBot.RIGHT_SERVO_MIN;
 
 
         // Wait for the game to start (driver presses PLAY)
@@ -109,7 +109,7 @@ public class OpmodeTeleopBasic extends LinearOpMode {
             }
 
             // Use Bumpers to extend wings. If the wing is already out, bumper should pull it in.
-            if (gamepad1.left_bumper) {
+           /* if (gamepad1.left_bumper) {
                 // Check to see if wing is extended
                 if (lPosition == HardwareJoeBot.LEFT_SERVO_MAX) {
                     robot.srv_left.setPosition(HardwareJoeBot.LEFT_SERVO_MIN);
@@ -117,21 +117,21 @@ public class OpmodeTeleopBasic extends LinearOpMode {
                 } else if (lPosition == HardwareJoeBot.LEFT_SERVO_MIN) {
                     robot.srv_left.setPosition(HardwareJoeBot.LEFT_SERVO_MAX);
                     lPosition = HardwareJoeBot.LEFT_SERVO_MAX;
-                }
+                }     */
             }
-            if (gamepad1.right_bumper) {
+            /*if (gamepad1.right_bumper) {
                 // Check to see if wing is extended
                 if (rPosition == HardwareJoeBot.RIGHT_SERVO_MAX) {
                     robot.srv_right.setPosition(HardwareJoeBot.RIGHT_SERVO_MIN);
                     rPosition = HardwareJoeBot.RIGHT_SERVO_MIN;
                 } else if (rPosition == HardwareJoeBot.RIGHT_SERVO_MIN){
                     robot.srv_right.setPosition(HardwareJoeBot.RIGHT_SERVO_MAX);
-                    rPosition = HardwareJoeBot.RIGHT_SERVO_MAX;
-                }
+                  //  rPosition = HardwareJoeBot.RIGHT_SERVO_MAX;
+                }*/
             }
 
             // Pause for metronome tick.  40 mS each cycle = update 25 times a second.
-            robot.waitForTick(40);
+            //robot.waitForTick(40);
         }
-    }
-}
+
+

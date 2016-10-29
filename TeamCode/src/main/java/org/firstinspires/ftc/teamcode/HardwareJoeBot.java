@@ -24,13 +24,13 @@ public class HardwareJoeBot
     public DcMotor  motor_driveleft   = null;
     public DcMotor  motor_driveright  = null;
     public DcMotor  motor_arm         = null;
-    public Servo    srv_left          = null;
-    public Servo    srv_right         = null;
+    //public Servo    srv_left          = null;
+   // public Servo    srv_right         = null;
 
-    public static final double RIGHT_SERVO_MAX   =  0.1 ;
-    public static final double RIGHT_SERVO_MIN   =  0.9 ;
-    public static final double LEFT_SERVO_MAX   =  0.9 ;
-    public static final double LEFT_SERVO_MIN   =  0.1 ;
+    //public static final double RIGHT_SERVO_MAX   =  0.1 ;
+    //public static final double RIGHT_SERVO_MIN   =  0.9 ;
+    //public static final double LEFT_SERVO_MAX   =  0.9 ;
+   // public static final double LEFT_SERVO_MIN   =  0.1 ;
 
     //public static final double ARM_UP_POWER    =  0.45 ;
     //public static final double ARM_DOWN_POWER  = -0.45 ;
@@ -68,10 +68,10 @@ public class HardwareJoeBot
         motor_arm.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
         // Define and initialize ALL installed servos.
-        srv_left = hwMap.servo.get("srv-left");
-        srv_right = hwMap.servo.get("srv-right");
-        srv_left.setPosition(LEFT_SERVO_MIN);
-        srv_right.setPosition(RIGHT_SERVO_MIN);
+       // srv_left = hwMap.servo.get("srv-left");
+        //srv_right = hwMap.servo.get("srv-right");
+        //srv_left.setPosition(LEFT_SERVO_MIN);
+        //srv_right.setPosition(RIGHT_SERVO_MIN);
     }
 
     /***
