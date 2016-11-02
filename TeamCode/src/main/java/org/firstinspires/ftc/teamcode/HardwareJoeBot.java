@@ -72,6 +72,8 @@ public class HardwareJoeBot
         srv_right = hwMap.servo.get("srv-right");
         srv_left.setPosition(LEFT_SERVO_MIN);
         srv_right.setPosition(RIGHT_SERVO_MIN);
+        srv_left.setPosition(LEFT_SERVO_MAX);
+        srv_right.setPosition(RIGHT_SERVO_MAX);
     }
 
     /***
