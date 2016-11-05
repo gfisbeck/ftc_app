@@ -1,5 +1,8 @@
 package org.firstinspires.ftc.teamcode;
 
+import com.qualcomm.hardware.modernrobotics.ModernRoboticsI2cColorSensor;
+import com.qualcomm.hardware.modernrobotics.ModernRoboticsI2cRangeSensor;
+import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
@@ -21,16 +24,18 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 public class HardwareJoeBot
 {
     /* Public OpMode members. */
-    public DcMotor  motor_driveleft   = null;
-    public DcMotor  motor_driveright  = null;
-    public DcMotor  motor_arm         = null;
-    //public Servo    srv_left          = null;
-   // public Servo    srv_right         = null;
+    public DcMotor                      motor_driveleft   = null;
+    public DcMotor                      motor_driveright  = null;
+    public DcMotor                      motor_arm         = null;
+    public Servo                        srv_left          = null;
+    public Servo                        srv_right         = null;
+    public ColorSensor                  colorSensor       = null;
+    public ModernRoboticsI2cRangeSensor rangeSensor       = null;
 
-    //public static final double RIGHT_SERVO_MAX   =  0.1 ;
-    //public static final double RIGHT_SERVO_MIN   =  0.9 ;
-    //public static final double LEFT_SERVO_MAX   =  0.9 ;
-   // public static final double LEFT_SERVO_MIN   =  0.1 ;
+    public static final double RIGHT_SERVO_MAX   =  0.1 ;
+    public static final double RIGHT_SERVO_MIN   =  0.9 ;
+    public static final double LEFT_SERVO_MAX   =  0.9 ;
+    public static final double LEFT_SERVO_MIN   =  0.1 ;
 
     //public static final double ARM_UP_POWER    =  0.45 ;
     //public static final double ARM_DOWN_POWER  = -0.45 ;
@@ -56,6 +61,13 @@ public class HardwareJoeBot
         motor_driveleft.setDirection(DcMotor.Direction.FORWARD); // Set to REVERSE if using AndyMark motors
         motor_driveright.setDirection(DcMotor.Direction.REVERSE);// Set to FORWARD if using AndyMark motors
 
+        //Define Sensors
+        colorSensor = hwMap.colorSensor.get("color-sensor");
+        rangeSensor = hwMap.get(ModernRoboticsI2cRangeSensor.class, "range-sensor");
+
+        //Enable Color Sensor LED
+        colorSensor.enableLed(true);
+
         // Set all motors to zero power
         motor_driveleft.setPower(0);
         motor_driveright.setPower(0);
@@ -68,10 +80,10 @@ public class HardwareJoeBot
         motor_arm.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
         // Define and initialize ALL installed servos.
-       // srv_left = hwMap.servo.get("srv-left");
-        //srv_right = hwMap.servo.get("srv-right");
-        //srv_left.setPosition(LEFT_SERVO_MIN);
-        //srv_right.setPosition(RIGHT_SERVO_MIN);
+        srv_left = hwMap.servo.get("srv-left");
+        srv_right = hwMap.servo.get("srv-right");
+        srv_left.setPosition(LEFT_SERVO_MIN);
+        srv_right.setPosition(RIGHT_SERVO_MIN);
     }
 
     /***
