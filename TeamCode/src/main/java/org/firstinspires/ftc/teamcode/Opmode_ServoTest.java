@@ -77,7 +77,7 @@ public class Opmode_ServoTest extends LinearOpMode {
         telemetry.addData("Say", "Hello Ethan");    //
         telemetry.update();
 
-
+        telemetry.addData("right Servo Position:",robot.srv_right.getPosition());
 
 
         // Wait for the game to start (driver presses PLAY)
@@ -87,7 +87,7 @@ public class Opmode_ServoTest extends LinearOpMode {
         while (opModeIsActive()) {
 
 
-            // check the status of the x button on either gamepad.
+            // check the status of the b button on either gamepad.
             bCurrStateR = gamepad1.b;
 
             // check for button state transitions.
@@ -109,10 +109,10 @@ public class Opmode_ServoTest extends LinearOpMode {
                 robot.srv_right.setPosition(robot.srv_right.getPosition()+0.2);
 
             } else {
-                robot.srv_right.setPosition(robot.srv_right.getPosition()+0.2);
+                robot.srv_right.setPosition(robot.srv_right.getPosition()-0.2);
             }
 
-
+            telemetry.addData("right Servo Position:",robot.srv_right.getPosition());
 
 
 
